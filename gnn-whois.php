@@ -2,7 +2,7 @@
 /**
  * Plugin Name: GNN Whois
  * Description: A simple WHOIS lookup plugin. <strong>Shortcode:</strong> <code>[gnn-whois]</code>
- * Version: 1.0.1
+ * Version: 1.1.0
  * Author: BigDesigner
  * Text Domain: gnn-whois
  * Domain Path: /languages

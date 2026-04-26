@@ -1,23 +1,21 @@
 # Next Actions: GNN Whois
 
-## Current Phase (Migration & Refactoring)
-- [x] **MIG-001:** Update all project references from GNN IPinfo to GNN Whois.
-- [x] **MIG-002:** Rewrite all documentation (.md files) to match Whois functionality.
-- [x] **MIG-003:** Integrate GitHub Updater into `gnn-whois.php`.
-- [x] **MIG-004:** Update GitHub Actions workflow for Whois releases.
+## Current Status (v1.1.0)
+- All core features and premium enhancements are implemented.
+- The project is fully migrated from GNN IPinfo and optimized for WHOIS.
+- GitHub releases are configured and functional.
 
 ## Immediate Priority
-- [x] **PERF-001:** Implement Transient Caching for WHOIS responses.
-- [x] **TLD-001:** Expand WHOIS server mapping for more international TLDs.
-- [x] **i18n-001:** Complete Turkish and English translations for all Whois strings.
+- [ ] **TLD-002:** Continue monitoring for new TLDs and update the server list as needed.
+- [ ] **I18N-002:** Verify translation coverage for new "Copy" and "Check Updates" strings.
 
-## Feature Enhancements
-- [x] **FEAT-001:** Implement "GNN Premium" Glassmorphism UI for the lookup form.
-- [x] **FEAT-002:** Add "Copy Result to Clipboard" button.
-- [ ] **FEAT-003:** Add option to export WHOIS report as a file.
+## Future Enhancements
+- [ ] **FEAT-003:** Implement AJAX-based lookup to provide a smoother user experience without page reloads.
+- [ ] **FEAT-004:** Add an optional "Admin Dashboard" card to show recent lookup statistics.
+- [ ] **FEAT-005:** Implement a "Save as PDF" button for generating WHOIS reports.
 
-## Documentation & Maintenance
-- [x] **DOC-001:** Update `README.md` and `CHANGELOG.md`.
-- [x] **DOC-002:** Synchronize Memory Bank (Snapshot, Standards, Decisions).
+## Maintenance
+- [x] **DOC-003:** Synchronize all .md files (README, Changelog, Architecture) with v1.1.0.
+- [x] **SYNC-001:** Update Memory Bank and AI Guardrails for the new project context.
 
-**STATUS: MIGRATION COMPLETED v1.0.1**
+**STATUS: STABLE v1.1.0**

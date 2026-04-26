@@ -5,25 +5,24 @@ GNN Whois is a modular, lightweight WordPress plugin designed to perform domain 
 
 ## Data Flow
 1. **Initiation:** A user visits a page containing the `[gnn_whois]` shortcode.
-2. **Shortcode Execution:** The `gnn_whois_shortcode()` function is triggered, rendering the lookup form.
-3. **User Input:** The user enters a domain name and submits the form.
-4. **Data Retrieval:**
-    - The `gnn_whois_lookup()` function identifies the correct WHOIS server based on the domain's TLD.
-    - A socket connection is established to the WHOIS server on port 43.
-    - The domain query is sent, and the server response is collected.
-5. **Data Processing:**
-    - The response is sanitized and formatted for display.
-6. **Output Rendering:** The WHOIS data is output within a pre-formatted container below the form.
+2. **Shortcode Execution:** The `gnn_whois_shortcode()` function is triggered, rendering the lookup form and handling POST submissions.
+3. **Data Retrieval:**
+    - The `gnn_whois_lookup()` function first checks the **WordPress Transients API** for a cached response (1-hour expiration).
+    - If no cache exists, it identifies the correct WHOIS server via `gnn_get_whois_server()`.
+    - A socket connection (`fsockopen`) is established on port 43 to retrieve the raw data.
+4. **Data Processing:**
+    - The response is sanitized, cached in transients, and formatted for display.
+5. **Output Rendering:** The WHOIS data is rendered within a premium "Glassmorphism" container with a "Copy to Clipboard" action.
 
 ## Key Components
-- **Shortcode API:** Provides the `[gnn_whois]` tag to embed the lookup form and results.
-- **WHOIS Lookup Engine:** A custom logic to map TLDs to their respective WHOIS servers and handle socket communications.
-- **Styles:** Custom CSS for a clean, responsive lookup interface.
-- **Localization:** Full support for internationalization (i18n) via `.po`/`.mo` files.
-- **GitHub Updater:** Integrates with the WordPress update system to provide automated updates from GitHub Releases.
+- **Shortcode API:** Main interface for the frontend lookup form and result display.
+- **WHOIS Engine:** TLD-to-server mapping and raw socket communication handler.
+- **Adaptive UI:** A universal CSS system that inherits theme colors and applies neutral glassmorphism for light/dark mode compatibility.
+- **Caching Layer:** Utilizes WordPress Transients to minimize network load and improve response times for repeat queries.
+- **GitHub Updater:** Automated and manual update check system integrated with WordPress Core updates.
 
 ## Core Principles
-1. **Direct Communication:** Uses fsockopen for direct communication with WHOIS servers, avoiding 3rd-party API dependencies.
-2. **Native Integration:** Hooks into standard WordPress actions and filters for script enqueuing and shortcode registration.
-3. **Security First:** Strict sanitization of user-submitted domain names and escaping of all output data.
-4. **Lightweight:** Minimal overhead, ensuring fast performance and compatibility with any WordPress theme.
+1. **Zero-Conflict CSS:** Uses inheritance (`color: inherit`) and semi-transparent overlays to blend into any theme.
+2. **Performance Optimized:** Direct socket connections and aggressive (but safe) caching.
+3. **Security First:** Strict input sanitization (`sanitize_text_field`), output escaping (`esc_html`), and nonce verification for admin actions.
+4. **Minimalist Dependencies:** No external 3rd-party libraries; purely native PHP and WordPress functions.

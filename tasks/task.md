@@ -21,11 +21,15 @@
 - [x] **UPD-002:** Integrate updater include in `gnn-whois.php`.
 - [x] **SEC-001:** Conduct security audit for socket safety and output escaping.
 
-## Current Sprint: Performance & UI Polish 🚀
+## Phase 4: Performance & UI Polish ✅
 - [x] **PERF-001:** Implement Transient Caching for WHOIS responses to reduce network load.
 - [x] **UI-002:** Design "GNN Premium" Glassmorphism interface for the lookup form.
+- [x] **UI-003:** Implement Universal Adaptive CSS (Dark/Light mode support).
 - [x] **TLD-001:** Expand TLD mapping to cover all major international extensions.
 - [x] **FEAT-001:** Add "Copy Result" button with one-click functionality.
+- [x] **ADMIN-001:** Add "Donate" and "Check Updates" links to the Plugins page.
+
+**STATUS: MIGRATION & ENHANCEMENT COMPLETED v1.1.0**
 
 ## Backlog
 - [ ] **FEAT-002:** Add "Save as PDF" functionality for WHOIS reports.
