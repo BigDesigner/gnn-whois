@@ -1,11 +1,10 @@
-/* GNN Whois - Theme Native Adaptive Styling */
-/* Designed to be 100% compatible with any WordPress theme (Dark, Light, Block-based, or Classic) */
+/* GNN Whois - Modern Pill Search & Natural Result Flow */
 
 .gnn-whois-form-wrapper {
-    all: initial; /* Reset to prevent leakage from complex themes */
+    all: initial;
     display: block;
     max-width: 100%;
-    margin: 2em 0;
+    margin: 3rem 0;
     font-family: inherit;
     color: inherit;
     box-sizing: border-box;
@@ -14,111 +13,174 @@
 .gnn-whois-form-wrapper * {
     box-sizing: border-box;
     font-family: inherit;
-    color: inherit; /* Force inheritance for all sub-elements */
+    color: inherit;
 }
 
-/* Container with subtle adaptive highlights */
-.gnn-whois-container {
-    padding: 1.5em;
-    border-radius: 8px;
+/* Modern Pill Search Bar */
+.gnn-whois-search {
+    position: relative;
+    width: 100%;
+    max-width: 50ch;
+    height: 3.5rem;
+    padding-left: 1.5rem;
+    border-radius: 1.75rem;
+    background: rgba(128, 128, 128, 0.05);
     border: 1px solid rgba(128, 128, 128, 0.2);
-    background: rgba(128, 128, 128, 0.03);
-    backdrop-filter: blur(5px);
+    box-shadow: 0 1rem 3rem -1rem rgba(0, 0, 0, 0.15);
+    transition: transform 200ms ease-in-out, box-shadow 200ms ease-in-out;
+    margin: 0 auto 2rem;
 }
 
-.gnn-whois-form {
+/* Floating Focus Effect */
+.gnn-whois-search:focus-within {
+    transform: translateY(-0.25rem);
+    box-shadow: 0 1.5rem 4rem -1rem rgba(0, 0, 0, 0.2);
+    border-color: rgba(128, 128, 128, 0.4);
+}
+
+.gnn-whois-search form {
     display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: 1em;
-}
-
-/* Input - Inherits from theme but ensures clean look */
-.gnn-whois-form input[type="text"] {
-    flex: 1;
-    min-width: 200px;
-    padding: 10px 14px;
-    border-radius: 4px;
-    border: 1px solid rgba(128, 128, 128, 0.3);
-    background: rgba(255, 255, 255, 0.05);
-    color: inherit !important;
-    font-size: 16px;
-    line-height: 1.5;
-}
-
-/* Buttons - Leveraging theme's button feel if possible, otherwise clean adaptive */
-.gnn-whois-form input[type="submit"],
-.gnn-whois-copy-btn {
-    padding: 10px 20px;
-    border-radius: 4px;
-    border: 1px solid rgba(128, 128, 128, 0.2);
-    background: rgba(128, 128, 128, 0.1);
-    color: inherit !important;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.2s ease;
-    display: inline-flex;
+    height: 100%;
     align-items: center;
-    justify-content: center;
 }
 
-.gnn-whois-form input[type="submit"]:hover,
-.gnn-whois-copy-btn:hover {
-    background: rgba(128, 128, 128, 0.2);
+.gnn-whois-search input[type="text"] {
+    all: unset;
+    flex: 1;
+    height: 100%;
+    color: inherit !important;
+    font-size: 1.1rem;
 }
 
-/* Result Area */
+.gnn-whois-search input::placeholder {
+    color: inherit;
+    opacity: 0.4;
+}
+
+/* Pill Button */
+.gnn-whois-search button {
+    all: unset;
+    position: absolute;
+    right: 0.25rem;
+    top: 0.25rem;
+    height: 3rem;
+    padding: 0 1.5rem 0 3.5rem;
+    border-radius: 1.5rem;
+    background: #296ec7; /* Main Action Color */
+    color: white !important;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: all 300ms ease-in-out;
+    overflow: hidden;
+}
+
+.gnn-whois-search button:hover {
+    background: #1e56a0;
+    box-shadow: 0 0.5rem 1.5rem rgba(41, 110, 199, 0.4);
+}
+
+.gnn-whois-search button .gnn-whois-label {
+    display: block;
+    opacity: 0;
+    width: 0;
+    white-space: nowrap;
+    transition: width 200ms ease-in-out, opacity 100ms ease-in-out;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Search Icon in Button */
+.gnn-whois-search-icon {
+    position: absolute;
+    height: 1rem;
+    width: 1rem;
+    top: 1rem;
+    left: 1.25rem;
+    border: 2px solid white;
+    border-radius: 50%;
+    box-sizing: border-box;
+    transform: rotate(-45deg);
+}
+
+.gnn-whois-search-icon::after {
+    content: "";
+    position: absolute;
+    height: 0.5rem;
+    width: 2px;
+    background: white;
+    left: calc(50% - 1px);
+    bottom: -0.6rem;
+}
+
+/* Expand Label when input has text */
+.gnn-whois-search:has(input:not(:placeholder-shown)) button .gnn-whois-label {
+    opacity: 1;
+    width: auto;
+    margin-left: 0;
+}
+
+/* Results Flow - Natural and Seamless */
 .gnn-whois-result-container {
-    margin-top: 1.5em;
+    margin-top: 2rem;
+    border-top: 1px solid rgba(128, 128, 128, 0.1);
+    padding-top: 2rem;
 }
 
 .gnn-whois-result-actions {
     display: flex;
     justify-content: flex-end;
-    margin-bottom: 8px;
+    margin-bottom: 1rem;
 }
 
 .gnn-whois-copy-btn {
-    padding: 5px 12px;
-    font-size: 12px;
-    text-transform: uppercase;
+    all: unset;
+    padding: 8px 16px;
+    border-radius: 20px;
+    background: rgba(128, 128, 128, 0.1);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.gnn-whois-copy-btn:hover {
+    background: rgba(128, 128, 128, 0.2);
 }
 
 .gnn-whois-copy-btn.copied {
-    background: #28a745 !important;
-    color: #fff !important;
-    border-color: transparent;
+    background: #28a745;
+    color: white !important;
 }
 
-/* The WHOIS data - Modern Mono with Theme Colors */
 .gnn-whois-result {
-    padding: 1.25em;
-    border-radius: 6px;
-    background: rgba(128, 128, 128, 0.05);
-    border: 1px solid rgba(128, 128, 128, 0.1);
+    margin: 0;
+    padding: 0;
+    background: transparent; /* Flowing results, no frame */
+    border: none;
     color: inherit !important;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    font-size: 13px;
-    line-height: 1.6;
-    overflow-x: auto;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 14px;
+    line-height: 1.8;
     white-space: pre-wrap;
     word-wrap: break-word;
-    max-height: 500px;
+    /* No max-height, let it flow */
 }
 
-/* Accessibility & Focus */
-.gnn-whois-form input:focus {
-    outline: 2px solid currentColor;
-    outline-offset: -2px;
-}
-
-/* Mobile Responsiveness */
+/* Mobile Adjustments */
 @media (max-width: 480px) {
-    .gnn-whois-form {
+    .gnn-whois-search {
+        height: auto;
+        padding: 0.5rem;
+    }
+    .gnn-whois-search form {
         flex-direction: column;
     }
-    .gnn-whois-form input[type="submit"] {
+    .gnn-whois-search button {
+        position: relative;
         width: 100%;
+        margin-top: 0.5rem;
+        top: 0;
+        right: 0;
     }
 }

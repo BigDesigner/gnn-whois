@@ -53,11 +53,13 @@ add_action('wp_enqueue_scripts', 'gnn_whois_enqueue_styles');
 // Register the shortcode
 function gnn_whois_shortcode($atts) {
     $output = '<div class="gnn-whois-form-wrapper">';
-    $output .= '<div class="gnn-whois-container">'; // Inner container for glassmorphism/border
-    $output .= '<div class="gnn-whois-form">';
+    $output .= '<div class="gnn-whois-search">';
     $output .= '<form method="post">';
-    $output .= '<input type="text" name="domain" placeholder="' . esc_attr__('Enter domain name', 'gnn-whois') . '">';
-    $output .= '<input type="submit" value="' . esc_attr__('Lookup', 'gnn-whois') . '">';
+    $output .= '<input type="text" name="domain" placeholder="' . esc_attr__('Enter domain name', 'gnn-whois') . '" required>';
+    $output .= '<button type="submit">';
+    $output .= '<span class="gnn-whois-label">' . esc_html__('Search', 'gnn-whois') . '</span>';
+    $output .= '<div class="gnn-whois-search-icon"></div>';
+    $output .= '</button>';
     $output .= '</form>';
     $output .= '</div>';
 
@@ -88,7 +90,6 @@ function gnn_whois_shortcode($atts) {
         </script>';
     }
 
-    $output .= '</div>'; // End container
     $output .= '</div>'; // End wrapper
 
     return $output;
