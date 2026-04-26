@@ -19,6 +19,21 @@ function gnn_whois_load_textdomain() {
 }
 add_action('plugins_loaded', 'gnn_whois_load_textdomain');
 
+// Add settings and donation links to the plugin page
+function gnn_whois_plugin_action_links($links, $file) {
+    if ($file === plugin_basename(__FILE__)) {
+        $donate_link = '<a href="https://buymeacoffee.com/bigdesigner" target="_blank" style="font-weight:bold; color:#d63638;">' . esc_html__('Donate', 'gnn-whois') . '</a>';
+        
+        // Manual Update Check Link
+        $update_url = wp_nonce_url(admin_url('plugins.php?gnn_whois_check_update=1'), 'gnn_whois_manual_update');
+        $update_link = '<a href="' . esc_url($update_url) . '">' . esc_html__('Check Updates', 'gnn-whois') . '</a>';
+        
+        array_unshift($links, $donate_link, $update_link);
+    }
+    return $links;
+}
+add_filter('plugin_action_links', 'gnn_whois_plugin_action_links', 10, 2);
+
 // Include updater
 if (is_admin()) {
     require_once plugin_dir_path(__FILE__) . 'inc/updater.php';
