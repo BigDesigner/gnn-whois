@@ -5,6 +5,13 @@ All notable changes to the **GNN Whois** plugin will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to Semantic Versioning.
 
+## [1.3.0] - 2026-04-26
+### Added
+- **Modern UI Redesign:** Implemented a new "Pill Search" bar with floating focus animations and expanding labels.
+- **Natural Result Flow:** Removed the restricted result frame; WHOIS data now flows naturally within the theme's content area.
+- **CSS Icons:** Switched to pure CSS search icons to eliminate external image dependencies.
+- **Responsive Layout:** Optimized the pill search bar for mobile devices.
+
 ## [1.2.0] - 2026-04-26
 ### Added
 - **Deep Inspect UI:** Total CSS rewrite for 100% theme compatibility.

@@ -27,9 +27,11 @@
 - [x] **UI-003:** Implement Universal Adaptive CSS (Dark/Light mode support).
 - [x] **TLD-001:** Expand TLD mapping to cover all major international extensions.
 - [x] **FEAT-001:** Add "Copy Result" button with one-click functionality.
+- [x] **UI-004:** Implement "Pill Search" bar with floating animations.
+- [x] **UI-005:** Implement "Natural Result Flow" system.
 - [x] **ADMIN-001:** Add "Donate" and "Check Updates" links to the Plugins page.
 
-**STATUS: PRODUCTION HARDENED v1.2.0**
+**STATUS: PREMIUM UI COMPLETED v1.3.0**
 
 ## Backlog
 - [ ] **FEAT-002:** Add "Save as PDF" functionality for WHOIS reports.
