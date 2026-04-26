@@ -13,6 +13,11 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+// Define plugin version
+if (!defined('GNN_WHOIS_VERSION')) {
+    define('GNN_WHOIS_VERSION', '1.1.0');
+}
+
 // Load plugin text domain for translations
 function gnn_whois_load_textdomain() {
     load_plugin_textdomain('gnn-whois', false, dirname(plugin_basename(__FILE__)) . '/languages');
@@ -41,7 +46,7 @@ if (is_admin()) {
 
 // Enqueue custom styles
 function gnn_whois_enqueue_styles() {
-    wp_enqueue_style('gnn-whois-styles', plugins_url('styles.css', __FILE__));
+    wp_enqueue_style('gnn-whois-styles', plugins_url('styles.css', __FILE__), array(), GNN_WHOIS_VERSION);
 }
 add_action('wp_enqueue_scripts', 'gnn_whois_enqueue_styles');
 
