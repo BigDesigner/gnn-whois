@@ -1,0 +1,116 @@
+/* GNN Whois Premium Styling */
+:root {
+    --gnn-primary: #0073aa;
+    --gnn-primary-hover: #005177;
+    --gnn-glass-bg: rgba(255, 255, 255, 0.7);
+    --gnn-glass-border: rgba(255, 255, 255, 0.3);
+    --gnn-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    --gnn-text: #333;
+}
+
+.gnn-whois-form {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background: var(--gnn-glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid var(--gnn-glass-border);
+    box-shadow: var(--gnn-shadow);
+    text-align: center;
+}
+
+.gnn-whois-form form {
+    display: flex;
+    gap: 10px;
+}
+
+.gnn-whois-form input[type="text"] {
+    flex-grow: 1;
+    padding: 12px 20px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+}
+
+.gnn-whois-form input[type="text"]:focus {
+    outline: none;
+    border-color: var(--gnn-primary);
+    box-shadow: 0 0 0 3px rgba(0, 115, 170, 0.1);
+}
+
+.gnn-whois-form input[type="submit"],
+.gnn-whois-copy-btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--gnn-primary);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.gnn-whois-form input[type="submit"]:hover,
+.gnn-whois-copy-btn:hover {
+    background-color: var(--gnn-primary-hover);
+    transform: translateY(-2px);
+}
+
+.gnn-whois-result-container {
+    margin-top: 30px;
+    text-align: left;
+    position: relative;
+}
+
+.gnn-whois-result-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+.gnn-whois-copy-btn {
+    padding: 8px 15px;
+    font-size: 14px;
+    background-color: #666;
+}
+
+.gnn-whois-copy-btn.copied {
+    background-color: #28a745;
+}
+
+.gnn-whois-result {
+    padding: 20px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: var(--gnn-text);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+/* Dark mode compatibility */
+@media (prefers-color-scheme: dark) {
+    .gnn-whois-form {
+        background: rgba(30, 30, 30, 0.7);
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+    .gnn-whois-form input[type="text"] {
+        background: rgba(0, 0, 0, 0.3);
+        color: #eee;
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+    .gnn-whois-result {
+        background: rgba(255, 255, 255, 0.05);
+        color: #ddd;
+    }
+}
