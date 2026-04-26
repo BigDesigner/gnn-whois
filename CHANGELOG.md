@@ -5,6 +5,13 @@ All notable changes to the **GNN Whois** plugin will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to Semantic Versioning.
 
+## [1.2.0] - 2026-04-26
+### Added
+- **Deep Inspect UI:** Total CSS rewrite for 100% theme compatibility.
+- **Universal Adaptation:** Implemented `all: initial` reset and `color: inherit` logic to match any theme text color perfectly.
+- **Improved Isolation:** Added inner container structure for better styling protection.
+- **Stability:** Finalized theme-native look and feel.
+
 ## [1.1.0] - 2026-04-26
 ### Added
 - **Performance:** Implemented Transient Caching (1 hour) for WHOIS responses.

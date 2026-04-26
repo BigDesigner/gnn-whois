@@ -29,7 +29,7 @@
 - [x] **FEAT-001:** Add "Copy Result" button with one-click functionality.
 - [x] **ADMIN-001:** Add "Donate" and "Check Updates" links to the Plugins page.
 
-**STATUS: MIGRATION & ENHANCEMENT COMPLETED v1.1.0**
+**STATUS: PRODUCTION HARDENED v1.2.0**
 
 ## Backlog
 - [ ] **FEAT-002:** Add "Save as PDF" functionality for WHOIS reports.
