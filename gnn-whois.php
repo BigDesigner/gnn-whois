@@ -55,9 +55,9 @@ function gnn_whois_shortcode($atts) {
     $output = '<div class="gnn-whois-form-wrapper">';
     $output .= '<div class="gnn-whois-search">';
     $output .= '<form method="post">';
-    $output .= '<input type="text" name="domain" placeholder="' . esc_attr__('Enter domain name', 'gnn-whois') . '" required>';
+    $output .= '<input type="text" name="domain" placeholder="' . esc_attr__('example.com', 'gnn-whois') . '" required>';
     $output .= '<button type="submit">';
-    $output .= '<span class="gnn-whois-label">' . esc_html__('Search', 'gnn-whois') . '</span>';
+    $output .= '<span class="gnn-whois-label">' . esc_html__('Whois', 'gnn-whois') . '</span>';
     $output .= '<div class="gnn-whois-search-icon"></div>';
     $output .= '</button>';
     $output .= '</form>';
