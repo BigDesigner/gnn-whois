@@ -1,116 +1,114 @@
-/* GNN Whois Premium Styling */
-:root {
-    --gnn-primary: #0073aa;
-    --gnn-primary-hover: #005177;
-    --gnn-glass-bg: rgba(255, 255, 255, 0.7);
-    --gnn-glass-border: rgba(255, 255, 255, 0.3);
-    --gnn-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
-    --gnn-text: #333;
+/* GNN Whois - Universal Adaptive Styling */
+
+.gnn-whois-form-wrapper {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 12px;
+    /* Universal Glassmorphism: works on any background */
+    background: rgba(128, 128, 128, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(128, 128, 128, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    color: inherit; /* Use theme text color */
+    font-family: inherit;
 }
 
 .gnn-whois-form {
-    max-width: 600px;
-    margin: 40px auto;
-    padding: 30px;
-    background: var(--gnn-glass-bg);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 15px;
-    border: 1px solid var(--gnn-glass-border);
-    box-shadow: var(--gnn-shadow);
-    text-align: center;
-}
-
-.gnn-whois-form form {
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
+    margin-bottom: 1.5rem;
 }
 
 .gnn-whois-form input[type="text"] {
-    flex-grow: 1;
-    padding: 12px 20px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    flex: 1;
+    min-width: 200px;
+    padding: 12px 16px;
     border-radius: 8px;
-    font-size: 16px;
-    background: rgba(255, 255, 255, 0.5);
-    transition: all 0.3s ease;
+    border: 1px solid rgba(128, 128, 128, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+    color: inherit;
+    font-size: 1rem;
+    transition: all 0.2s ease;
 }
 
 .gnn-whois-form input[type="text"]:focus {
     outline: none;
-    border-color: var(--gnn-primary);
-    box-shadow: 0 0 0 3px rgba(0, 115, 170, 0.1);
+    border-color: currentColor;
+    background: rgba(255, 255, 255, 0.1);
 }
 
+/* Button - Adaptive to theme colors where possible */
 .gnn-whois-form input[type="submit"],
 .gnn-whois-copy-btn {
-    padding: 12px 25px;
-    border: none;
+    padding: 12px 24px;
     border-radius: 8px;
-    background-color: var(--gnn-primary);
-    color: white;
-    font-size: 16px;
+    border: 1px solid rgba(128, 128, 128, 0.2);
+    background: rgba(128, 128, 128, 0.1);
+    color: inherit;
+    font-size: 0.9rem;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .gnn-whois-form input[type="submit"]:hover,
 .gnn-whois-copy-btn:hover {
-    background-color: var(--gnn-primary-hover);
-    transform: translateY(-2px);
+    background: rgba(128, 128, 128, 0.2);
+    transform: translateY(-1px);
 }
 
+/* Result Container */
 .gnn-whois-result-container {
-    margin-top: 30px;
-    text-align: left;
+    margin-top: 1.5rem;
     position: relative;
 }
 
 .gnn-whois-result-actions {
     display: flex;
     justify-content: flex-end;
-    margin-bottom: 10px;
+    margin-bottom: 0.75rem;
 }
 
 .gnn-whois-copy-btn {
-    padding: 8px 15px;
-    font-size: 14px;
-    background-color: #666;
+    padding: 6px 14px;
+    font-size: 0.75rem;
+    opacity: 0.8;
 }
 
 .gnn-whois-copy-btn.copied {
-    background-color: #28a745;
+    background: #28a745;
+    color: white;
+    border-color: transparent;
 }
 
 .gnn-whois-result {
-    padding: 20px;
-    border-radius: 10px;
-    background: rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    color: var(--gnn-text);
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 14px;
-    line-height: 1.5;
+    padding: 1.5rem;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.03); /* Very subtle overlay */
+    border: 1px solid rgba(128, 128, 128, 0.1);
+    color: inherit; /* Crucial: Use theme text color */
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    font-size: 13px;
+    line-height: 1.6;
     white-space: pre-wrap;
     word-wrap: break-word;
     max-height: 500px;
     overflow-y: auto;
 }
 
-/* Dark mode compatibility */
+/* Dark theme specific adjustment for the result background */
 @media (prefers-color-scheme: dark) {
-    .gnn-whois-form {
-        background: rgba(30, 30, 30, 0.7);
-        border-color: rgba(255, 255, 255, 0.1);
-    }
-    .gnn-whois-form input[type="text"] {
-        background: rgba(0, 0, 0, 0.3);
-        color: #eee;
-        border-color: rgba(255, 255, 255, 0.1);
-    }
     .gnn-whois-result {
-        background: rgba(255, 255, 255, 0.05);
-        color: #ddd;
+        background: rgba(255, 255, 255, 0.03);
     }
+}
+
+/* WordPress Admin bar adjustment if needed */
+.admin-bar .gnn-whois-form-wrapper {
+    margin-top: 3rem;
 }
