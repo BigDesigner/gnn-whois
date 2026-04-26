@@ -31,7 +31,7 @@
 - [x] **UI-005:** Implement "Natural Result Flow" system.
 - [x] **ADMIN-001:** Add "Donate" and "Check Updates" links to the Plugins page.
 
-**STATUS: PREMIUM UI COMPLETED v1.3.0**
+**STATUS: PRODUCTION STABLE v1.4.0**
 
 ## Backlog
 - [ ] **FEAT-002:** Add "Save as PDF" functionality for WHOIS reports.

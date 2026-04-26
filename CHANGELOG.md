@@ -5,6 +5,12 @@ All notable changes to the **GNN Whois** plugin will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to Semantic Versioning.
 
+## [1.4.0] - 2026-04-26
+### Changed
+- **UX Refinement:** Updated search button label to "Whois" and placeholder to "example.com" for better clarity.
+- **Style Polish:** Removed the floating focus animation from the search bar to create a more stable and professional feel.
+- **Maintenance:** Updated internal versioning constants.
+
 ## [1.3.0] - 2026-04-26
 ### Added
 - **Modern UI Redesign:** Implemented a new "Pill Search" bar with floating focus animations and expanding labels.

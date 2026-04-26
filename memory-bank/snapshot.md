@@ -1,7 +1,7 @@
 # Project Snapshot: GNN Whois
 
 ## System Status
-- **Plugin Version:** 1.3.0
+- **Plugin Version:** 1.4.0
 - **Current Branch:** main
 - **Status:** Active / Production Ready
 - **Core Principles:** 

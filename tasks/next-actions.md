@@ -18,4 +18,4 @@
 - [x] **DOC-003:** Synchronize all .md files (README, Changelog, Architecture) with v1.1.0.
 - [x] **SYNC-001:** Update Memory Bank and AI Guardrails for the new project context.
 
-**STATUS: STABLE v1.3.0**
+**STATUS: STABLE v1.4.0**
