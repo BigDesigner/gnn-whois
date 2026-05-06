@@ -114,11 +114,11 @@ class GNN_Whois_Updater
         }
 
         $release_data = (object) array(
-            'version'      => $remote_version,
+            'version' => $remote_version,
             'download_url' => $download_url,
-            'changelog'    => isset($body->body) ? $body->body : '',
+            'changelog' => isset($body->body) ? $body->body : '',
             'published_at' => isset($body->published_at) ? $body->published_at : '',
-            'html_url'     => isset($body->html_url) ? $body->html_url : '',
+            'html_url' => isset($body->html_url) ? $body->html_url : '',
         );
 
         set_transient($this->transient_key, $release_data, $this->cache_duration);
@@ -144,12 +144,12 @@ class GNN_Whois_Updater
 
         if (version_compare($release->version, $local_version, '>')) {
             $obj = new stdClass();
-            $obj->slug        = 'gnn-whois';
-            $obj->plugin      = $this->plugin_slug;
+            $obj->slug = 'gnn-whois';
+            $obj->plugin = $this->plugin_slug;
             $obj->new_version = $release->version;
-            $obj->url         = $release->html_url;
-            $obj->package     = $release->download_url;
-            
+            $obj->url = $release->html_url;
+            $obj->package = $release->download_url;
+
             $transient->response[$this->plugin_slug] = $obj;
         }
 
@@ -171,15 +171,15 @@ class GNN_Whois_Updater
         }
 
         return (object) array(
-            'name'          => 'GNN Whois',
-            'slug'          => 'gnn-whois',
-            'version'       => $release->version,
-            'author'        => 'BigDesigner',
-            'homepage'      => 'https://www.bigdesigner.com',
+            'name' => 'GNN Whois',
+            'slug' => 'gnn-whois',
+            'version' => $release->version,
+            'author' => 'BigDesigner',
+            'homepage' => 'https://github.com/BigDesigner',
             'download_link' => $release->download_url,
-            'sections'      => array(
+            'sections' => array(
                 'description' => 'A premium WordPress plugin for performing WHOIS lookups directly from your site.',
-                'changelog'   => nl2br(esc_html($release->changelog)),
+                'changelog' => nl2br(esc_html($release->changelog)),
             ),
         );
     }
@@ -195,7 +195,7 @@ class GNN_Whois_Updater
 
         global $wp_filesystem;
         $plugin_dir = WP_PLUGIN_DIR . '/gnn-whois';
-        
+
         // Ensure the directory is correctly named
         if ($result['destination'] !== $plugin_dir) {
             $wp_filesystem->move($result['destination'], $plugin_dir);
@@ -219,7 +219,7 @@ class GNN_Whois_Updater
             if (current_user_can('update_plugins')) {
                 delete_transient($this->transient_key);
                 delete_site_transient('update_plugins');
-                
+
                 // Redirect to the core updates page to show the result
                 wp_safe_redirect(admin_url('update-core.php?force-check=1'));
                 exit;
