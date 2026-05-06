@@ -5,6 +5,11 @@ All notable changes to the **GNN Whois** plugin will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to Semantic Versioning.
 
+## [1.4.1] - 2026-05-07
+### Changed
+- **Maintenance:** Removed AI agent configuration files and internal documentation from public tracking to keep the repository clean.
+- **Version bump:** Incremented version to 1.4.1.
+
 ## [1.4.0] - 2026-04-26
 ### Changed
 - **UX Refinement:** Updated search button label to "Whois" and placeholder to "example.com" for better clarity.

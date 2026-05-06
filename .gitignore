@@ -35,6 +35,14 @@ local-config.php
 # Keep memory-bank, specs, agents as they are core to context
 # .gemini/
 
+# AI Agent & Project Documentation (Local only)
+agents/
+docs/
+memory-bank/
+tasks/
+architecture-notes.md
+security-audit.md
+
 # ----------------------------------------------------------------------
 # Local Test Environments (DO NOT PUSH)
 # ----------------------------------------------------------------------

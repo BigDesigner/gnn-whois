@@ -2,8 +2,11 @@
 /**
  * Plugin Name: GNN Whois
  * Description: A simple WHOIS lookup plugin. <strong>Shortcode:</strong> <code>[gnn-whois]</code>
- * Version: 1.4.0
- * Author: BigDesigner
+ * Version: 1.4.1
+ * Author URI: 			https://github.com/BigDesigner
+ * License: 			GPLv2 or later
+ * License URI: 		https://www.gnu.org/licenses/gpl-2.0.html
+ * Author: 				BigDesigner
  * Text Domain: gnn-whois
  * Domain Path: /languages
  */
@@ -15,24 +18,26 @@ if (!defined('ABSPATH')) {
 
 // Define plugin version
 if (!defined('GNN_WHOIS_VERSION')) {
-    define('GNN_WHOIS_VERSION', '1.4.0');
+    define('GNN_WHOIS_VERSION', '1.4.1');
 }
 
 // Load plugin text domain for translations
-function gnn_whois_load_textdomain() {
+function gnn_whois_load_textdomain()
+{
     load_plugin_textdomain('gnn-whois', false, dirname(plugin_basename(__FILE__)) . '/languages');
 }
 add_action('plugins_loaded', 'gnn_whois_load_textdomain');
 
 // Add settings and donation links to the plugin page
-function gnn_whois_plugin_action_links($links, $file) {
+function gnn_whois_plugin_action_links($links, $file)
+{
     if ($file === plugin_basename(__FILE__)) {
         $donate_link = '<a href="https://buymeacoffee.com/bigdesigner" target="_blank" style="font-weight:bold; color:#d63638;">' . esc_html__('Donate', 'gnn-whois') . '</a>';
-        
+
         // Manual Update Check Link
         $update_url = wp_nonce_url(admin_url('plugins.php?gnn_whois_check_update=1'), 'gnn_whois_manual_update');
         $update_link = '<a href="' . esc_url($update_url) . '">' . esc_html__('Check Updates', 'gnn-whois') . '</a>';
-        
+
         array_unshift($links, $donate_link, $update_link);
     }
     return $links;
@@ -45,13 +50,15 @@ if (is_admin()) {
 }
 
 // Enqueue custom styles
-function gnn_whois_enqueue_styles() {
+function gnn_whois_enqueue_styles()
+{
     wp_enqueue_style('gnn-whois-styles', plugins_url('styles.css', __FILE__), array(), GNN_WHOIS_VERSION);
 }
 add_action('wp_enqueue_scripts', 'gnn_whois_enqueue_styles');
 
 // Register the shortcode
-function gnn_whois_shortcode($atts) {
+function gnn_whois_shortcode($atts)
+{
     $output = '<div class="gnn-whois-form-wrapper">';
     $output .= '<div class="gnn-whois-search">';
     $output .= '<form method="post">';
@@ -97,7 +104,8 @@ function gnn_whois_shortcode($atts) {
 add_shortcode('gnn_whois', 'gnn_whois_shortcode');
 
 // Function to get WHOIS server based on domain extension
-function gnn_get_whois_server($domain) {
+function gnn_get_whois_server($domain)
+{
     $tld = substr(strrchr($domain, '.'), 1);
     $whois_servers = array(
         'com' => 'whois.verisign-grs.com',
@@ -182,7 +190,8 @@ function gnn_get_whois_server($domain) {
 }
 
 // Function to perform WHOIS lookup
-function gnn_whois_lookup($domain) {
+function gnn_whois_lookup($domain)
+{
     $cache_key = 'gnn_whois_' . md5($domain);
     $cached_response = get_transient($cache_key);
 
