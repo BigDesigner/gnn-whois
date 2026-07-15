@@ -5,6 +5,14 @@ All notable changes to the **GNN Whois** plugin will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to Semantic Versioning.
 
+## [1.5.0] - 2026-07-15
+### Added
+- **Rate Limiting:** Public lookup form now allows a maximum of 3 lookups per minute per visitor IP, preventing abuse of outbound WHOIS connections.
+
+### Fixed
+- **Shortcode Reference:** Corrected the plugin header description to reference the correct shortcode `[gnn_whois]` (was `[gnn-whois]`).
+- **Release Workflow:** Pinned `softprops/action-gh-release` to the valid `v2` major version (was a non-existent `v3`).
+
 ## [1.4.1] - 2026-05-07
 ### Changed
 - **Maintenance:** Removed AI agent configuration files and internal documentation from public tracking to keep the repository clean.

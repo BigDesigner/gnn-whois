@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: GNN Whois
- * Description: A simple WHOIS lookup plugin. <strong>Shortcode:</strong> <code>[gnn-whois]</code>
- * Version: 1.4.1
+ * Description: A simple WHOIS lookup plugin. <strong>Shortcode:</strong> <code>[gnn_whois]</code>
+ * Version: 1.5.0
  * Author URI: 			https://github.com/BigDesigner
  * License: 			GPLv2 or later
  * License URI: 		https://www.gnu.org/licenses/gpl-2.0.html
@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) {
 
 // Define plugin version
 if (!defined('GNN_WHOIS_VERSION')) {
-    define('GNN_WHOIS_VERSION', '1.4.1');
+    define('GNN_WHOIS_VERSION', '1.5.0');
 }
 
 // Load plugin text domain for translations
@@ -72,6 +72,15 @@ function gnn_whois_shortcode($atts)
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['domain'])) {
         $domain = sanitize_text_field($_POST['domain']);
+
+        if (!gnn_whois_check_rate_limit()) {
+            $output .= '<div class="gnn-whois-result-container">';
+            $output .= '<pre class="gnn-whois-result">' . esc_html__('Rate limit exceeded. Please wait a minute before trying again (max 3 lookups per minute).', 'gnn-whois') . '</pre>';
+            $output .= '</div>';
+            $output .= '</div>'; // End wrapper
+            return $output;
+        }
+
         $whois_data = gnn_whois_lookup($domain);
         $output .= '<div class="gnn-whois-result-container">';
         $output .= '<div class="gnn-whois-result-actions">';
@@ -187,6 +196,27 @@ function gnn_get_whois_server($domain)
     );
 
     return isset($whois_servers[$tld]) ? $whois_servers[$tld] : 'whois.iana.org';
+}
+
+// Rate limit lookups per client IP (max 3 per minute).
+//
+// Uses a fixed 60-second window keyed by the visitor's IP address. Returns
+// true when the request is allowed (and increments the counter), or false
+// when the limit for the current window has already been reached.
+function gnn_whois_check_rate_limit()
+{
+    $ip = isset($_SERVER['REMOTE_ADDR']) ? sanitize_text_field(wp_unslash($_SERVER['REMOTE_ADDR'])) : 'unknown';
+    $cache_key = 'gnn_whois_rl_' . md5($ip);
+
+    $count = (int) get_transient($cache_key);
+
+    if ($count >= 3) {
+        return false;
+    }
+
+    set_transient($cache_key, $count + 1, MINUTE_IN_SECONDS);
+
+    return true;
 }
 
 // Function to perform WHOIS lookup
