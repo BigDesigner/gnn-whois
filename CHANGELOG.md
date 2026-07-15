@@ -10,6 +10,7 @@ and this project adheres to Semantic Versioning.
 - **Rate Limiting:** Public lookup form now allows a maximum of 3 lookups per minute per visitor IP, preventing abuse of outbound WHOIS connections.
 
 ### Fixed
+- **Responsive Form:** Fixed the search field on small screens — the button no longer overflows the viewport, the input fills the pill with a comfortable tap target, and long domain names are no longer hidden under the overlapping button on desktop.
 - **Shortcode Reference:** Corrected the plugin header description to reference the correct shortcode `[gnn_whois]` (was `[gnn-whois]`).
 - **Release Workflow:** Pinned `softprops/action-gh-release` to the valid `v2` major version (was a non-existent `v3`).
 
