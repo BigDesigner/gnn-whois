@@ -5,6 +5,10 @@ All notable changes to the **GNN Whois** plugin will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to Semantic Versioning.
 
+## [1.0.3] - 2026-08-05
+### Fixed
+- **Repo Structure:** Moved `README.md` back to the repository root (GitHub renders it as the repo landing page there, not from inside the plugin subfolder).
+
 ## [1.0.2] - 2026-08-05
 ### Changed
 - **Repo Structure:** Moved plugin files into a `gnn-whois/` subfolder so the repository root mirrors the installable plugin package. Simplified the release workflow to zip the folder directly instead of rsync-ing with exclude rules.
