@@ -26,40 +26,17 @@ jobs:
           if [ -n "$VERSION_INPUT" ]; then
             VERSION="$VERSION_INPUT"
           else
-            VERSION=$(grep -m 1 "Version:" gnn-whois.php | awk '{print $NF}')
+            VERSION=$(grep -m 1 "Version:" gnn-whois/gnn-whois.php | awk '{print $NF}')
           fi
           echo "VERSION=$VERSION" >> $GITHUB_ENV
           echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
 
-      - name: Create Build Directory and Zip
+      - name: Create Zip
         run: |
-          # Define zip name
+          # The repo root now mirrors the plugin package: the gnn-whois/
+          # folder can be zipped directly, no build/rsync step needed.
           ZIP_NAME="gnn-whois-${{ env.VERSION }}.zip"
-          
-          # Create a temporary directory for clean build and a subfolder for the plugin
-          mkdir -p build/gnn-whois
-          
-          # Use rsync to copy files, excluding the build directory itself and other dev files
-          # This is more robust than 'cp' for recursive situations
-          rsync -av --exclude='build' \
-                    --exclude='.git' \
-                    --exclude='.github' \
-                    --exclude='memory-bank' \
-                    --exclude='specs' \
-                    --exclude='agents' \
-                    --exclude='tasks' \
-                    --exclude='docs' \
-                    --exclude='archive' \
-                    --exclude='.gitignore' \
-                    --exclude='*.md' \
-                    ./ build/gnn-whois/
-          
-          # Explicitly include only CHANGELOG.md
-          cp CHANGELOG.md build/gnn-whois/
-          
-          # Zip the build directory (this will include the gnn-ipinfo folder)
-          cd build && zip -r "../$ZIP_NAME" gnn-whois && cd ..
-          
+          zip -r "$ZIP_NAME" gnn-whois
           echo "ZIP_NAME=$ZIP_NAME" >> $GITHUB_ENV
 
       - name: Create GitHub Release

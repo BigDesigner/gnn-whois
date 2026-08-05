@@ -5,6 +5,10 @@ All notable changes to the **GNN Whois** plugin will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to Semantic Versioning.
 
+## [1.0.2] - 2026-08-05
+### Changed
+- **Repo Structure:** Moved plugin files into a `gnn-whois/` subfolder so the repository root mirrors the installable plugin package. Simplified the release workflow to zip the folder directly instead of rsync-ing with exclude rules.
+
 ## [1.0.1] - 2026-08-05
 ### Changed
 - **CI:** Bumped `actions/checkout` to v7 and `softprops/action-gh-release` to v3 in the release workflow.

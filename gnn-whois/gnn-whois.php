@@ -2,7 +2,7 @@
 /**
  * Plugin Name: GNN Whois
  * Description: A simple WHOIS lookup plugin. <strong>Shortcode:</strong> <code>[gnn_whois]</code>
- * Version: 1.0.1
+ * Version: 1.0.2
  * Author URI: 			https://github.com/BigDesigner
  * License: 			GPLv2 or later
  * License URI: 		https://www.gnu.org/licenses/gpl-2.0.html
@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) {
 
 // Define plugin version
 if (!defined('GNN_WHOIS_VERSION')) {
-    define('GNN_WHOIS_VERSION', '1.0.1');
+    define('GNN_WHOIS_VERSION', '1.0.2');
 }
 
 // Load plugin text domain for translations
