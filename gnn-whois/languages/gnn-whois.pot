@@ -1,12 +1,115 @@
 msgid ""
 msgstr ""
+"Project-Id-Version: GNN Whois 1.0.3\n"
+"MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Domain: gnn-whois\n"
 
-msgid "Enter domain name"
+#: gnn-whois.php
+msgid "Donate"
 msgstr ""
 
-msgid "Lookup"
+#: gnn-whois.php
+msgid "Settings"
 msgstr ""
 
-msgid "Connection error: %d - %s"
+#: gnn-whois.php
+msgid "Check Updates"
+msgstr ""
+
+#: gnn-whois.php
+msgid "GNN Whois"
+msgstr ""
+
+#: gnn-whois.php
+msgid "You do not have sufficient permissions to access this page."
+msgstr ""
+
+#: gnn-whois.php
+msgid "WHOIS lookup cache cleared."
+msgstr ""
+
+#: gnn-whois.php
+msgid "Use the shortcode [gnn_whois] to embed the WHOIS lookup form on any page or post."
+msgstr ""
+
+#: gnn-whois.php
+msgid "Version"
+msgstr ""
+
+#: gnn-whois.php
+msgid "Shortcode"
+msgstr ""
+
+#: gnn-whois.php
+msgid "Rate Limit"
+msgstr ""
+
+#: gnn-whois.php
+msgid "3 lookups per minute per IP"
+msgstr ""
+
+#: gnn-whois.php
+msgid "Cache TTL"
+msgstr ""
+
+#: gnn-whois.php
+msgid "1 hour (Transients API)"
+msgstr ""
+
+#: gnn-whois.php
+msgid "Clear WHOIS Cache"
+msgstr ""
+
+#: gnn-whois.php
+msgid "Copied!"
+msgstr ""
+
+#: gnn-whois.php
+msgid "Unable to copy results."
+msgstr ""
+
+#: gnn-whois.php
+msgid "Domain name"
+msgstr ""
+
+#: gnn-whois.php
+msgid "example.com"
+msgstr ""
+
+#: gnn-whois.php
+msgid "Whois"
+msgstr ""
+
+#: gnn-whois.php
+msgid "Please enter a valid domain name (e.g. example.com)."
+msgstr ""
+
+#: gnn-whois.php
+msgid "Rate limit exceeded. Please wait a minute before trying again (max 3 lookups per minute)."
+msgstr ""
+
+#: gnn-whois.php
+msgid "Copy Results"
+msgstr ""
+
+#: gnn-whois.php
+msgid "Unable to connect to the WHOIS server. Please try again later."
+msgstr ""
+
+#: gnn-whois.php
+msgid "WHOIS lookup timed out or returned an empty response. Please try again."
+msgstr ""
+
+#: inc/updater.php
+msgid "A lightweight WordPress plugin for performing WHOIS lookups directly from your site via the [gnn_whois] shortcode."
+msgstr ""
+
+#: inc/updater.php
+msgid "Security check failed."
+msgstr ""
+
+#: inc/updater.php
+msgid "You do not have permission to check for updates."
 msgstr ""

@@ -26,7 +26,7 @@ jobs:
           if [ -n "$VERSION_INPUT" ]; then
             VERSION="$VERSION_INPUT"
           else
-            VERSION=$(grep -m 1 "Version:" gnn-whois/gnn-whois.php | awk '{print $NF}')
+            VERSION=$(grep -m 1 "Version:" gnn-whois/gnn-whois.php | awk '{print $NF}' | tr -d '\r')
           fi
           echo "VERSION=$VERSION" >> $GITHUB_ENV
           echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
@@ -36,7 +36,7 @@ jobs:
           # The repo root now mirrors the plugin package: the gnn-whois/
           # folder can be zipped directly, no build/rsync step needed.
           ZIP_NAME="gnn-whois-${{ env.VERSION }}.zip"
-          zip -r "$ZIP_NAME" gnn-whois
+          zip -r "$ZIP_NAME" gnn-whois -x "*/.DS_Store" -x "*/Thumbs.db"
           echo "ZIP_NAME=$ZIP_NAME" >> $GITHUB_ENV
 
       - name: Create GitHub Release
@@ -47,6 +47,5 @@ jobs:
           files: ${{ env.ZIP_NAME }}
           draft: false
           prerelease: false
-          token: ${{ secrets.GITHUB_TOKEN }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
