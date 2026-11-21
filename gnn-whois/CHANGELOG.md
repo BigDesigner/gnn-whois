@@ -5,6 +5,10 @@ All notable changes to the **GNN Whois** plugin will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to Semantic Versioning.
 
+## [1.1.1] - 2026-11-21
+### Changed
+- **Updater:** Standardized `GNN_Whois_Updater` to the unified GNN GitHub Updater specification and updater loading guard.
+
 ## [1.1.0] - 2026-11-20
 ### Added
 - **WordPress & PHP Metadata:** Added `Requires at least: 6.7` and `Requires PHP: 7.4` plugin headers, plus `requires`, `tested` (`7.1.5`), and `requires_php` metadata in `GNN_Whois_Updater`.

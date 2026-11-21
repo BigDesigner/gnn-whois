@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       GNN Whois
  * Description:       A simple WHOIS lookup plugin. <strong>Shortcode:</strong> <code>[gnn_whois]</code>
- * Version:           1.1.0
+ * Version:           1.1.1
  * Requires at least: 6.7
  * Requires PHP:      7.4
  * Author:            BigDesigner
@@ -20,7 +20,7 @@ if (!defined('ABSPATH')) {
 
 // Define plugin version.
 if (!defined('GNN_WHOIS_VERSION')) {
-    define('GNN_WHOIS_VERSION', '1.1.0');
+    define('GNN_WHOIS_VERSION', '1.1.1');
 }
 
 /**
@@ -150,9 +150,7 @@ function gnn_whois_admin_page()
 }
 
 // Include updater.
-if (is_admin()) {
-    require_once plugin_dir_path(__FILE__) . 'inc/updater.php';
-}
+require_once plugin_dir_path(__FILE__) . 'inc/updater.php';
 
 /**
  * Register frontend styles and scripts, and enqueue early when shortcode is present.
