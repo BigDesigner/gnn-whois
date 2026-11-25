@@ -23,3 +23,8 @@
 - Background updates via WP-Cron and WP-CLI now function without requiring an admin request.
 - Plugin active state is reliably preserved across updates.
 - Update checks remain functional when the GitHub API is rate-limited.
+
+
+## Amendment (2026-11-25): Disk-First Local Version Detection
+- **Root Cause:** Reading in-memory version constants (`GNN_*_VERSION` / `$this->version`) first inside `get_local_version()` returned the pre-upgrade version when WordPress fired `pre_set_site_transient_update_plugins` within the same PHP request right after overwriting plugin files, causing the update banner to persist until a second update run.
+- **Resolution:** `get_local_version()` now reads the live `Version` header directly from `WP_PLUGIN_DIR . '/' . $this->plugin_basename` via `clearstatcache( true, $main_file )` and `get_file_data()` first, falling back to in-memory constants only if the file is unavailable.
